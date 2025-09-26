@@ -125,15 +125,7 @@ figura.update_layout(
 # Adicionar valores nas barras
 figura.update_traces(texttemplate='%{text}', textposition='outside')
 
-# Exibir o gráfico
-st.plotly_chart(figura, use_container_width=True)
-
-st.markdown("---")
-
-# Seção: Adição de Conteúdo ao Longo do Tempo
-st.header("📈 Adição de Conteúdo ao Longo do Tempo")
-
-# Preparar dados para análise temporal
+# Preparar dados para análise temporal (antes de exibir os gráficos)
 df_temp = df_filtrado.copy()
 df_temp['date_added'] = pd.to_datetime(df_temp['date_added'], errors='coerce')
 df_temp = df_temp.dropna(subset=['date_added'])
@@ -147,12 +139,12 @@ fig_tempo = px.line(
     yearly_adds, 
     x='year_added', 
     y='count',
-    title='Número de Filmes e Séries Adicionados por Ano ao Longo do Tempo',
+    title='Adição de Conteúdo ao Longo do Tempo',
     labels={'year_added': 'Ano', 'count': 'Número de Adições'},
-    color_discrete_sequence=['#1f77b4']  # Azul principal
+    color_discrete_sequence=['#ff7f0e']  # Laranja para contraste
 )
 
-# Melhorar o layout
+# Melhorar o layout do gráfico temporal
 fig_tempo.update_layout(
     height=500,
     title_x=0.5,
@@ -177,11 +169,18 @@ fig_tempo.update_layout(
 # Adicionar marcadores nos pontos
 fig_tempo.update_traces(
     mode='lines+markers',
-    marker=dict(size=6, color='#1f77b4'),
+    marker=dict(size=6, color='#ff7f0e'),
     line=dict(width=3)
 )
 
-st.plotly_chart(fig_tempo, use_container_width=True)
+# Exibir os gráficos lado a lado
+col1, col2 = st.columns(2)
+
+with col1:
+    st.plotly_chart(figura, use_container_width=True)
+
+with col2:
+    st.plotly_chart(fig_tempo, use_container_width=True)
 
 st.markdown("---")
 
