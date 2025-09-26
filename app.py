@@ -229,20 +229,13 @@ fig_paises.update_layout(
 # Rotacionar labels do eixo X para melhor legibilidade
 fig_paises.update_xaxes(tickangle=45)
 
-st.plotly_chart(fig_paises, use_container_width=True)
-
-st.markdown("---")
-
-# Seção: Distribuição por Gênero
-st.header("🎭 Top Gêneros na Netflix")
-
-# Processar dados de gêneros
+# Processar dados de gêneros (antes de exibir os gráficos)
 genres = df_filtrado['listed_in'].str.split(', ', expand=True).stack()
 genre_counts = genres.value_counts().reset_index(name='count')
 genre_counts.columns = ['Genre', 'Count']
 top_genres = genre_counts.head(15)
 
-# Criar o gráfico de barras
+# Criar o gráfico de barras de gêneros
 fig_generos = px.bar(
     top_genres, 
     x='Genre', 
@@ -253,7 +246,7 @@ fig_generos = px.bar(
     color_continuous_scale=['#1f77b4', '#ff7f0e']
 )
 
-# Melhorar o layout
+# Melhorar o layout do gráfico de gêneros
 fig_generos.update_layout(
     height=500,
     title_x=0.5,
@@ -278,7 +271,14 @@ fig_generos.update_layout(
 # Rotacionar labels do eixo X
 fig_generos.update_xaxes(tickangle=45)
 
-st.plotly_chart(fig_generos, use_container_width=True)
+# Exibir os gráficos lado a lado
+col1, col2 = st.columns(2)
+
+with col1:
+    st.plotly_chart(fig_paises, use_container_width=True)
+
+with col2:
+    st.plotly_chart(fig_generos, use_container_width=True)
 
 st.markdown("---")
 
