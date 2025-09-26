@@ -328,32 +328,25 @@ fig_diretores.update_layout(
 # Rotacionar labels do eixo X
 fig_diretores.update_xaxes(tickangle=45)
 
-st.plotly_chart(fig_diretores, use_container_width=True)
-
-st.markdown("---")
-
-# Seção: Top Membros do Elenco na Netflix
-st.header("⭐ Top 10 Membros do Elenco na Netflix")
-
-# Processar dados de elenco
+# Processar dados de elenco (antes de exibir os gráficos)
 cast_members = df_filtrado['cast'].str.split(', ', expand=True).stack()
 cast_counts = cast_members.value_counts().reset_index(name='count')
 cast_counts.columns = ['Cast Member', 'Count']
 cast_counts = cast_counts[cast_counts['Cast Member'] != 'Não Informado']
 top_cast = cast_counts.head(10)
 
-# Criar o gráfico de barras
+# Criar o gráfico de barras de elenco
 fig_elenco = px.bar(
     top_cast, 
     x='Cast Member', 
     y='Count',
-    title='Top 10 Membros do Elenco com Mais Conteúdo na Netflix',
+    title='Top 10 Membros do Elenco na Netflix',
     labels={'Cast Member': 'Membro do Elenco', 'Count': 'Número de Títulos'},
     color='Count',
     color_continuous_scale=['#1f77b4', '#ff7f0e']
 )
 
-# Melhorar o layout
+# Melhorar o layout do gráfico de elenco
 fig_elenco.update_layout(
     height=500,
     title_x=0.5,
@@ -378,7 +371,14 @@ fig_elenco.update_layout(
 # Rotacionar labels do eixo X
 fig_elenco.update_xaxes(tickangle=45)
 
-st.plotly_chart(fig_elenco, use_container_width=True)
+# Exibir os gráficos lado a lado
+col1, col2 = st.columns(2)
+
+with col1:
+    st.plotly_chart(fig_diretores, use_container_width=True)
+
+with col2:
+    st.plotly_chart(fig_elenco, use_container_width=True)
 
 # Informações adicionais
 st.info(f"💡 **Dados carregados:** {len(df):,} títulos | **Filtrado:** {len(df_filtrado):,} títulos")
