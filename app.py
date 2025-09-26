@@ -280,5 +280,105 @@ fig_generos.update_xaxes(tickangle=45)
 
 st.plotly_chart(fig_generos, use_container_width=True)
 
+st.markdown("---")
+
+# Seção: Top Diretores na Netflix
+st.header("🎬 Top 10 Diretores na Netflix")
+
+# Processar dados de diretores
+directors = df_filtrado['director'].str.split(', ', expand=True).stack()
+director_counts = directors.value_counts().reset_index(name='count')
+director_counts.columns = ['Director', 'Count']
+director_counts = director_counts[director_counts['Director'] != 'Não Informado']
+top_directors = director_counts.head(10)
+
+# Criar o gráfico de barras
+fig_diretores = px.bar(
+    top_directors, 
+    x='Director', 
+    y='Count',
+    title='Top 10 Diretores com Mais Conteúdo na Netflix',
+    labels={'Director': 'Diretor', 'Count': 'Número de Títulos'},
+    color='Count',
+    color_continuous_scale=['#1f77b4', '#ff7f0e']
+)
+
+# Melhorar o layout
+fig_diretores.update_layout(
+    height=500,
+    title_x=0.5,
+    plot_bgcolor='white',
+    paper_bgcolor='white',
+    font=dict(family="Arial", size=12),
+    title_font_size=16,
+    xaxis=dict(
+        showgrid=False,
+        linecolor='#d3d3d3',
+        linewidth=1,
+        categoryorder='total descending'
+    ),
+    yaxis=dict(
+        showgrid=True,
+        gridcolor='#f0f0f0',
+        linecolor='#d3d3d3',
+        linewidth=1
+    )
+)
+
+# Rotacionar labels do eixo X
+fig_diretores.update_xaxes(tickangle=45)
+
+st.plotly_chart(fig_diretores, use_container_width=True)
+
+st.markdown("---")
+
+# Seção: Top Membros do Elenco na Netflix
+st.header("⭐ Top 10 Membros do Elenco na Netflix")
+
+# Processar dados de elenco
+cast_members = df_filtrado['cast'].str.split(', ', expand=True).stack()
+cast_counts = cast_members.value_counts().reset_index(name='count')
+cast_counts.columns = ['Cast Member', 'Count']
+cast_counts = cast_counts[cast_counts['Cast Member'] != 'Não Informado']
+top_cast = cast_counts.head(10)
+
+# Criar o gráfico de barras
+fig_elenco = px.bar(
+    top_cast, 
+    x='Cast Member', 
+    y='Count',
+    title='Top 10 Membros do Elenco com Mais Conteúdo na Netflix',
+    labels={'Cast Member': 'Membro do Elenco', 'Count': 'Número de Títulos'},
+    color='Count',
+    color_continuous_scale=['#1f77b4', '#ff7f0e']
+)
+
+# Melhorar o layout
+fig_elenco.update_layout(
+    height=500,
+    title_x=0.5,
+    plot_bgcolor='white',
+    paper_bgcolor='white',
+    font=dict(family="Arial", size=12),
+    title_font_size=16,
+    xaxis=dict(
+        showgrid=False,
+        linecolor='#d3d3d3',
+        linewidth=1,
+        categoryorder='total descending'
+    ),
+    yaxis=dict(
+        showgrid=True,
+        gridcolor='#f0f0f0',
+        linecolor='#d3d3d3',
+        linewidth=1
+    )
+)
+
+# Rotacionar labels do eixo X
+fig_elenco.update_xaxes(tickangle=45)
+
+st.plotly_chart(fig_elenco, use_container_width=True)
+
 # Informações adicionais
 st.info(f"💡 **Dados carregados:** {len(df):,} títulos | **Filtrado:** {len(df_filtrado):,} títulos")
