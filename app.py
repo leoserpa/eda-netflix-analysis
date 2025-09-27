@@ -291,11 +291,9 @@ fig_generos.update_xaxes(tickangle=45)
 col1, col2 = st.columns(2)
 
 with col1:
-    st.markdown("<h3 style='text-align: center; margin-bottom: 15px;'>🌍 Top 10 Países</h3>", unsafe_allow_html=True)
     st.plotly_chart(fig_paises, use_container_width=True)
 
 with col2:
-    st.markdown("<h3 style='text-align: center; margin-bottom: 15px;'>🎭 Top Gêneros</h3>", unsafe_allow_html=True)
     st.plotly_chart(fig_generos, use_container_width=True)
 
 st.markdown("---")
@@ -401,11 +399,9 @@ fig_elenco.update_xaxes(tickangle=45)
 col1, col2 = st.columns(2)
 
 with col1:
-    st.markdown("<h3 style='text-align: center; margin-bottom: 15px;'>🎬 Top 10 Diretores</h3>", unsafe_allow_html=True)
     st.plotly_chart(fig_diretores, use_container_width=True)
 
 with col2:
-    st.markdown("<h3 style='text-align: center; margin-bottom: 15px;'>⭐ Top 10 Elenco</h3>", unsafe_allow_html=True)
     st.plotly_chart(fig_elenco, use_container_width=True)
 
 # Informações adicionais
