@@ -420,6 +420,7 @@ fig_elenco.update_traces(
     textfont_size=10
 )
 
+
 # Exibir os gráficos lado a lado
 col1, col2 = st.columns(2)
 
@@ -428,6 +429,9 @@ with col1:
 
 with col2:
     st.plotly_chart(fig_elenco, use_container_width=True)
+    
+    # Storytelling simples
+    st.markdown('<p style="font-size: 12px;"><em>Anupam Kher domina o catálogo da Netflix com o maior número de títulos, seguido por Shah Rukh Khan e Julie Tejwani.</em></p>', unsafe_allow_html=True)
 
 # Informações adicionais
 st.info(f"💡 **Dados carregados:** {len(df):,} títulos | **Filtrado:** {len(df_filtrado):,} títulos")
