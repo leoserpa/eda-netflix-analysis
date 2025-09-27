@@ -25,7 +25,7 @@ df = load_data()
 df_filtrado = df
 
 # Seção: Métricas Numéricas
-st.header("📊 Métricas Gerais")
+st.markdown("<h2 style='text-align: center;'>📊 Métricas Gerais</h2>", unsafe_allow_html=True)
 
 # Calcular métricas
 total_filmes = len(df[df['type'] == 'Movie'])
@@ -59,7 +59,7 @@ with col3:
 st.markdown("---")
 
 # Seção: Distribuição de Filmes e Séries
-st.header("📊 Distribuição de Filmes e Séries")
+st.markdown("<h2 style='text-align: center; margin-bottom: 20px;'>📊 Distribuição de Filmes e Séries</h2>", unsafe_allow_html=True)
 
 # Cálculo da distribuição
 contagem_tipo = df_filtrado['type'].value_counts().reset_index()
@@ -92,7 +92,7 @@ figura = px.bar(
     y='Quantidade', 
     title='Distribuição de Filmes e Séries na Netflix',
     color='Tipo',
-    color_discrete_sequence=['#1f77b4', '#ff7f0e'],  # Cores do Storytelling com Dados
+    color_discrete_sequence=['#1f77b4', '#808080'],  # Azul e cinza como na imagem
     text='Quantidade'
 )
 
@@ -101,6 +101,7 @@ figura.update_layout(
     showlegend=False,
     height=500,
     title_x=0.5,
+    title_y=0.95,
     xaxis_title="Tipo de Conteúdo",
     yaxis_title="Quantidade",
     # Layout mais limpo e profissional
@@ -141,13 +142,14 @@ fig_tempo = px.line(
     y='count',
     title='Adição de Conteúdo ao Longo do Tempo',
     labels={'year_added': 'Ano', 'count': 'Número de Adições'},
-    color_discrete_sequence=['#ff7f0e']  # Laranja para contraste
+    color_discrete_sequence=['#1f77b4']  # Azul para evolução temporal
 )
 
 # Melhorar o layout do gráfico temporal
 fig_tempo.update_layout(
     height=500,
     title_x=0.5,
+    title_y=0.95,
     plot_bgcolor='white',
     paper_bgcolor='white',
     font=dict(family="Arial", size=12),
@@ -169,23 +171,25 @@ fig_tempo.update_layout(
 # Adicionar marcadores nos pontos
 fig_tempo.update_traces(
     mode='lines+markers',
-    marker=dict(size=6, color='#ff7f0e'),
-    line=dict(width=3)
+    marker=dict(size=6, color='#1f77b4'),
+    line=dict(width=3, color='#1f77b4')
 )
 
 # Exibir os gráficos lado a lado
 col1, col2 = st.columns(2)
 
 with col1:
+    st.markdown("<h3 style='text-align: center; margin-bottom: 15px;'>📊 Distribuição</h3>", unsafe_allow_html=True)
     st.plotly_chart(figura, use_container_width=True)
 
 with col2:
+    st.markdown("<h3 style='text-align: center; margin-bottom: 15px;'>📈 Evolução Temporal</h3>", unsafe_allow_html=True)
     st.plotly_chart(fig_tempo, use_container_width=True)
 
 st.markdown("---")
 
 # Seção: Conteúdo por País de Produção
-st.header("🌍 Top 10 Países com Mais Conteúdo")
+st.markdown("<h2 style='text-align: center;'>🌍 Top 10 Países com Mais Conteúdo</h2>", unsafe_allow_html=True)
 
 # Processar dados de países
 countries = df_filtrado['country'].str.split(', ', expand=True).stack()
@@ -202,13 +206,14 @@ fig_paises = px.bar(
     title='Top 10 Países com Mais Conteúdo na Netflix',
     labels={'Country': 'País', 'Count': 'Número de Títulos'},
     color='Count',
-    color_continuous_scale=['#1f77b4', '#ff7f0e']  # Gradiente azul para laranja
+    color_continuous_scale=['#1f77b4', '#808080']  # Azul e cinza como na imagem
 )
 
 # Melhorar o layout
 fig_paises.update_layout(
     height=500,
     title_x=0.5,
+    title_y=0.95,
     plot_bgcolor='white',
     paper_bgcolor='white',
     font=dict(family="Arial", size=12),
@@ -243,13 +248,14 @@ fig_generos = px.bar(
     title='Top Gêneros na Netflix',
     labels={'Genre': 'Gênero', 'Count': 'Número de Títulos'},
     color='Count',
-    color_continuous_scale=['#1f77b4', '#ff7f0e']
+    color_continuous_scale=['#1f77b4', '#808080']  # Azul e cinza como na imagem
 )
 
 # Melhorar o layout do gráfico de gêneros
 fig_generos.update_layout(
     height=500,
     title_x=0.5,
+    title_y=0.95,
     plot_bgcolor='white',
     paper_bgcolor='white',
     font=dict(family="Arial", size=12),
@@ -275,15 +281,17 @@ fig_generos.update_xaxes(tickangle=45)
 col1, col2 = st.columns(2)
 
 with col1:
+    st.markdown("<h3 style='text-align: center; margin-bottom: 15px;'>🌍 Top 10 Países</h3>", unsafe_allow_html=True)
     st.plotly_chart(fig_paises, use_container_width=True)
 
 with col2:
+    st.markdown("<h3 style='text-align: center; margin-bottom: 15px;'>🎭 Top Gêneros</h3>", unsafe_allow_html=True)
     st.plotly_chart(fig_generos, use_container_width=True)
 
 st.markdown("---")
 
 # Seção: Top Diretores na Netflix
-st.header("🎬 Top 10 Diretores na Netflix")
+st.markdown("<h2 style='text-align: center;'>🎬 Top 10 Diretores na Netflix</h2>", unsafe_allow_html=True)
 
 # Processar dados de diretores
 directors = df_filtrado['director'].str.split(', ', expand=True).stack()
@@ -300,13 +308,14 @@ fig_diretores = px.bar(
     title='Top 10 Diretores com Mais Conteúdo na Netflix',
     labels={'Director': 'Diretor', 'Count': 'Número de Títulos'},
     color='Count',
-    color_continuous_scale=['#1f77b4', '#ff7f0e']
+    color_continuous_scale=['#1f77b4', '#808080']  # Azul e cinza como na imagem
 )
 
 # Melhorar o layout
 fig_diretores.update_layout(
     height=500,
     title_x=0.5,
+    title_y=0.95,
     plot_bgcolor='white',
     paper_bgcolor='white',
     font=dict(family="Arial", size=12),
@@ -343,13 +352,14 @@ fig_elenco = px.bar(
     title='Top 10 Membros do Elenco na Netflix',
     labels={'Cast Member': 'Membro do Elenco', 'Count': 'Número de Títulos'},
     color='Count',
-    color_continuous_scale=['#1f77b4', '#ff7f0e']
+    color_continuous_scale=['#1f77b4', '#808080']  # Azul e cinza como na imagem
 )
 
 # Melhorar o layout do gráfico de elenco
 fig_elenco.update_layout(
     height=500,
     title_x=0.5,
+    title_y=0.95,
     plot_bgcolor='white',
     paper_bgcolor='white',
     font=dict(family="Arial", size=12),
@@ -375,9 +385,11 @@ fig_elenco.update_xaxes(tickangle=45)
 col1, col2 = st.columns(2)
 
 with col1:
+    st.markdown("<h3 style='text-align: center; margin-bottom: 15px;'>🎬 Top 10 Diretores</h3>", unsafe_allow_html=True)
     st.plotly_chart(fig_diretores, use_container_width=True)
 
 with col2:
+    st.markdown("<h3 style='text-align: center; margin-bottom: 15px;'>⭐ Top 10 Elenco</h3>", unsafe_allow_html=True)
     st.plotly_chart(fig_elenco, use_container_width=True)
 
 # Informações adicionais
