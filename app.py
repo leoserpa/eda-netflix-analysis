@@ -59,7 +59,6 @@ with col3:
 st.markdown("---")
 
 # Seção: Distribuição de Filmes e Séries
-st.markdown("<h2 style='text-align: left; margin-bottom: 20px;'>📊 Distribuição de Filmes e Séries</h2>", unsafe_allow_html=True)
 
 # Cálculo da distribuição
 contagem_tipo = df_filtrado['type'].value_counts().reset_index()
@@ -193,7 +192,6 @@ with col2:
 st.markdown("---")
 
 # Seção: Conteúdo por País de Produção
-st.markdown("<h2 style='text-align: center;'>🌍 Top 10 Países com Mais Conteúdo</h2>", unsafe_allow_html=True)
 
 # Processar dados de países
 countries = df_filtrado['country'].str.split(', ', expand=True).stack()
@@ -299,7 +297,6 @@ with col2:
 st.markdown("---")
 
 # Seção: Top Diretores na Netflix
-st.markdown("<h2 style='text-align: center;'>🎬 Top 10 Diretores na Netflix</h2>", unsafe_allow_html=True)
 
 # Processar dados de diretores
 directors = df_filtrado['director'].str.split(', ', expand=True).stack()
