@@ -185,7 +185,6 @@ fig_tempo.update_traces(
 col1, col2 = st.columns(2)
 
 with col1:
-    st.markdown("<h3 style='text-align: center; margin-bottom: 15px;'>📊 Distribuição</h3>", unsafe_allow_html=True)
     st.plotly_chart(figura, use_container_width=True)
 
 with col2:
