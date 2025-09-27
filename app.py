@@ -243,9 +243,7 @@ fig_paises.update_xaxes(tickangle=45)
 # Adicionar valores dentro das barras
 fig_paises.update_traces(
     textposition='inside',
-    textfont_size=10,
-    uniformtext_minsize=8,
-    uniformtext_mode='hide'
+    textfont_size=10
 )
 
 # Processar dados de gêneros (antes de exibir os gráficos)
@@ -298,9 +296,7 @@ fig_generos.update_xaxes(tickangle=45)
 # Adicionar valores dentro das barras
 fig_generos.update_traces(
     textposition='inside',
-    textfont_size=10,
-    uniformtext_minsize=8,
-    uniformtext_mode='hide'
+    textfont_size=10
 )
 
 # Exibir os gráficos lado a lado
@@ -367,9 +363,7 @@ fig_diretores.update_xaxes(tickangle=45)
 # Adicionar valores dentro das barras
 fig_diretores.update_traces(
     textposition='inside',
-    textfont_size=10,
-    uniformtext_minsize=8,
-    uniformtext_mode='hide'
+    textfont_size=10
 )
 
 # Processar dados de elenco (antes de exibir os gráficos)
@@ -423,9 +417,7 @@ fig_elenco.update_xaxes(tickangle=45)
 # Adicionar valores dentro das barras
 fig_elenco.update_traces(
     textposition='inside',
-    textfont_size=10,
-    uniformtext_minsize=8,
-    uniformtext_mode='hide'
+    textfont_size=10
 )
 
 # Exibir os gráficos lado a lado
