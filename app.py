@@ -426,6 +426,9 @@ col1, col2 = st.columns(2)
 
 with col1:
     st.plotly_chart(fig_diretores, use_container_width=True)
+    
+    # Storytelling simples
+    st.markdown('<p style="font-size: 12px;"><em>Os diretores mais representados no catálogo da Netflix são Rajiv Chilaka, Jan Suter e Raúl Campos, liderando o ranking dos profissionais com mais títulos na plataforma.</em></p>', unsafe_allow_html=True)
 
 with col2:
     st.plotly_chart(fig_elenco, use_container_width=True)
