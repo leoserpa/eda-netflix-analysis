@@ -25,7 +25,7 @@ df = load_data()
 df_filtrado = df
 
 # Seção: Métricas Numéricas
-st.markdown("<h2 style='text-align: center;'>📊 Métricas Gerais</h2>", unsafe_allow_html=True)
+st.markdown("<h2 style='text-align: left;'>📊 Métricas Gerais</h2>", unsafe_allow_html=True)
 
 # Calcular métricas
 total_filmes = len(df[df['type'] == 'Movie'])
@@ -212,7 +212,7 @@ fig_paises = px.bar(
     title='Top 10 Países com Mais Conteúdo na Netflix',
     labels={'Country': 'País', 'Count': 'Número de Títulos'},
     color='Count',
-    color_continuous_scale=['#1f77b4', '#808080']  # Azul e cinza como na imagem
+    color_continuous_scale=['#1f77b4', '#808080']  # Azul e cinza 
 )
 
 # Melhorar o layout
@@ -257,7 +257,7 @@ fig_generos = px.bar(
     title='Top Gêneros na Netflix',
     labels={'Genre': 'Gênero', 'Count': 'Número de Títulos'},
     color='Count',
-    color_continuous_scale=['#1f77b4', '#808080']  # Azul e cinza como na imagem
+    color_continuous_scale=['#1f77b4', '#808080']  # Azul e cinza 
 )
 
 # Melhorar o layout do gráfico de gêneros
@@ -320,7 +320,7 @@ fig_diretores = px.bar(
     title='Top 10 Diretores com Mais Conteúdo na Netflix',
     labels={'Director': 'Diretor', 'Count': 'Número de Títulos'},
     color='Count',
-    color_continuous_scale=['#1f77b4', '#808080']  # Azul e cinza como na imagem
+    color_continuous_scale=['#1f77b4', '#808080']  # Azul e cinza 
 )
 
 # Melhorar o layout
@@ -367,7 +367,7 @@ fig_elenco = px.bar(
     title='Top 10 Membros do Elenco na Netflix',
     labels={'Cast Member': 'Membro do Elenco', 'Count': 'Número de Títulos'},
     color='Count',
-    color_continuous_scale=['#1f77b4', '#808080']  # Azul e cinza como na imagem
+    color_continuous_scale=['#1f77b4', '#808080']  # Azul e cinza 
 )
 
 # Melhorar o layout do gráfico de elenco
