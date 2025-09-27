@@ -189,7 +189,6 @@ with col1:
     st.plotly_chart(figura, use_container_width=True)
 
 with col2:
-    st.markdown("<h3 style='text-align: center; margin-bottom: 15px;'>📈 Evolução Temporal</h3>", unsafe_allow_html=True)
     st.plotly_chart(fig_tempo, use_container_width=True)
 
 st.markdown("---")
