@@ -208,7 +208,8 @@ fig_paises = px.bar(
     title='Top 10 Países com Mais Conteúdo na Netflix',
     labels={'Country': 'País', 'Count': 'Número de Títulos'},
     color='Count',
-    color_continuous_scale=['#1f77b4', '#808080']  # Azul e cinza 
+    color_continuous_scale=['#1f77b4', '#808080'],  # Azul e cinza 
+    text='Count'
 )
 
 # Melhorar o layout
@@ -239,6 +240,14 @@ fig_paises.update_layout(
 # Rotacionar labels do eixo X para melhor legibilidade
 fig_paises.update_xaxes(tickangle=45)
 
+# Adicionar valores dentro das barras
+fig_paises.update_traces(
+    textposition='inside',
+    textfont_size=10,
+    uniformtext_minsize=8,
+    uniformtext_mode='hide'
+)
+
 # Processar dados de gêneros (antes de exibir os gráficos)
 genres = df_filtrado['listed_in'].str.split(', ', expand=True).stack()
 genre_counts = genres.value_counts().reset_index(name='count')
@@ -253,7 +262,8 @@ fig_generos = px.bar(
     title='Top Gêneros na Netflix',
     labels={'Genre': 'Gênero', 'Count': 'Número de Títulos'},
     color='Count',
-    color_continuous_scale=['#1f77b4', '#808080']  # Azul e cinza 
+    color_continuous_scale=['#1f77b4', '#808080'],  # Azul e cinza 
+    text='Count'
 )
 
 # Melhorar o layout do gráfico de gêneros
@@ -285,6 +295,14 @@ fig_generos.update_layout(
 # Rotacionar labels do eixo X
 fig_generos.update_xaxes(tickangle=45)
 
+# Adicionar valores dentro das barras
+fig_generos.update_traces(
+    textposition='inside',
+    textfont_size=10,
+    uniformtext_minsize=8,
+    uniformtext_mode='hide'
+)
+
 # Exibir os gráficos lado a lado
 col1, col2 = st.columns(2)
 
@@ -313,7 +331,8 @@ fig_diretores = px.bar(
     title='Top 10 Diretores com Mais Conteúdo na Netflix',
     labels={'Director': 'Diretor', 'Count': 'Número de Títulos'},
     color='Count',
-    color_continuous_scale=['#1f77b4', '#808080']  # Azul e cinza 
+    color_continuous_scale=['#1f77b4', '#808080'],  # Azul e cinza 
+    text='Count'
 )
 
 # Melhorar o layout
@@ -345,6 +364,14 @@ fig_diretores.update_layout(
 # Rotacionar labels do eixo X
 fig_diretores.update_xaxes(tickangle=45)
 
+# Adicionar valores dentro das barras
+fig_diretores.update_traces(
+    textposition='inside',
+    textfont_size=10,
+    uniformtext_minsize=8,
+    uniformtext_mode='hide'
+)
+
 # Processar dados de elenco (antes de exibir os gráficos)
 cast_members = df_filtrado['cast'].str.split(', ', expand=True).stack()
 cast_counts = cast_members.value_counts().reset_index(name='count')
@@ -360,7 +387,8 @@ fig_elenco = px.bar(
     title='Top 10 Membros do Elenco na Netflix',
     labels={'Cast Member': 'Membro do Elenco', 'Count': 'Número de Títulos'},
     color='Count',
-    color_continuous_scale=['#1f77b4', '#808080']  # Azul e cinza 
+    color_continuous_scale=['#1f77b4', '#808080'],  # Azul e cinza 
+    text='Count'
 )
 
 # Melhorar o layout do gráfico de elenco
@@ -391,6 +419,14 @@ fig_elenco.update_layout(
 
 # Rotacionar labels do eixo X
 fig_elenco.update_xaxes(tickangle=45)
+
+# Adicionar valores dentro das barras
+fig_elenco.update_traces(
+    textposition='inside',
+    textfont_size=10,
+    uniformtext_minsize=8,
+    uniformtext_mode='hide'
+)
 
 # Exibir os gráficos lado a lado
 col1, col2 = st.columns(2)
