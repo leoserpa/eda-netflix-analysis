@@ -59,7 +59,7 @@ with col3:
 st.markdown("---")
 
 # Seção: Distribuição de Filmes e Séries
-st.markdown("<h2 style='text-align: center; margin-bottom: 20px;'>📊 Distribuição de Filmes e Séries</h2>", unsafe_allow_html=True)
+st.markdown("<h2 style='text-align: left; margin-bottom: 20px;'>📊 Distribuição de Filmes e Séries</h2>", unsafe_allow_html=True)
 
 # Cálculo da distribuição
 contagem_tipo = df_filtrado['type'].value_counts().reset_index()
