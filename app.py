@@ -17,6 +17,18 @@ st.markdown("---")
 @st.cache_data
 def load_data():
     df = pd.read_csv('dataset/netflix_titles.csv')
+    
+    # Tratamento e limpeza de dados (igual ao notebook)
+    # 1. Converter date_added para datetime
+    df['date_added'] = pd.to_datetime(df['date_added'], errors='coerce')
+    
+    # 2. Preencher valores nulos em colunas categóricas com 'Não Informado'
+    for col in ['director', 'cast', 'country', 'rating', 'duration']:
+        df[col] = df[col].fillna('Não Informado')
+    
+    # 3. Remover linhas com valores nulos na coluna 'date_added'
+    df.dropna(subset=['date_added'], inplace=True)
+    
     return df
 
 df = load_data()
@@ -130,8 +142,6 @@ figura.update_traces(texttemplate='%{text}', textposition='outside')
 
 # Preparar dados para análise temporal (antes de exibir os gráficos)
 df_temp = df_filtrado.copy()
-df_temp['date_added'] = pd.to_datetime(df_temp['date_added'], errors='coerce')
-df_temp = df_temp.dropna(subset=['date_added'])
 df_temp['year_added'] = df_temp['date_added'].dt.year
 
 # Contar o número de títulos adicionados por ano
