@@ -195,6 +195,9 @@ col1, col2 = st.columns(2)
 
 with col1:
     st.plotly_chart(figura, use_container_width=True)
+    
+    # Storytelling simples
+    st.markdown('<p style="font-size: 12px;"><em>A Netflix tem 8.709 títulos, sendo 70.4% filmes e 29.6% séries, com foco maior em produções cinematográficas.</em></p>', unsafe_allow_html=True)
 
 with col2:
     st.plotly_chart(fig_tempo, use_container_width=True)
