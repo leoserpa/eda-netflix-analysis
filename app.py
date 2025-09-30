@@ -436,3 +436,7 @@ with col2:
     # Storytelling simples
     st.markdown('<p style="font-size: 12px;"><em>Anupam Kher domina o catálogo da Netflix com o maior número de títulos, seguido por Shah Rukh Khan e Julie Tejwani.</em></p>', unsafe_allow_html=True)
 
+# Rodapé
+st.markdown("---")
+st.markdown('<p style="text-align: center; color: #666; font-size: 14px; font-weight: bold;">Criado com Streamlit por Leonardo Serpa</p>', unsafe_allow_html=True)
+
