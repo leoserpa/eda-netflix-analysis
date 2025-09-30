@@ -458,5 +458,3 @@ with col2:
     # Storytelling simples
     st.markdown('<p style="font-size: 12px;"><em>Anupam Kher domina o catálogo da Netflix com o maior número de títulos, seguido por Shah Rukh Khan e Julie Tejwani.</em></p>', unsafe_allow_html=True)
 
-# Informações adicionais
-st.info(f"💡 **Dados carregados:** {len(df):,} títulos | **Filtrado:** {len(df_filtrado):,} títulos")
