@@ -10,7 +10,7 @@ st.set_page_config(
 )
 
 # Título principal
-st.title("🎬 Análise Exploratória - Netflix")
+st.title("🎬 Dashboard de Análise Exploratória dos Dados da Netflix")
 st.markdown("---")
 
 # Carregamento dos dados
