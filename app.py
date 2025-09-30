@@ -201,6 +201,9 @@ with col1:
 
 with col2:
     st.plotly_chart(fig_tempo, use_container_width=True)
+    
+    # Storytelling simples
+    st.markdown('<p style="font-size: 12px;"><em>O gráfico revela uma tendência de aumento significativo na adição de filmes e séries ao catálogo da Netflix ao longo dos anos, com um crescimento notável a partir de 2015, atingindo o pico por volta de 2019-2020, e uma ligeira queda em 2021.</em></p>', unsafe_allow_html=True)
 
 st.markdown("---")
 
