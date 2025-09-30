@@ -314,6 +314,9 @@ col1, col2 = st.columns(2)
 
 with col1:
     st.plotly_chart(fig_paises, use_container_width=True)
+    
+    # Storytelling simples
+    st.markdown('<p style="font-size: 12px;"><em>Os EUA lideram em número de títulos na Netflix, seguidos por India, Reino Unido e outros países, destacando a presença global da plataforma.</em></p>', unsafe_allow_html=True)
 
 with col2:
     st.plotly_chart(fig_generos, use_container_width=True)
