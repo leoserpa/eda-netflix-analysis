@@ -36,39 +36,6 @@ df = load_data()
 # Usar todos os dados sem filtro
 df_filtrado = df
 
-# Seção: Métricas Numéricas
-st.markdown("<h2 style='text-align: left;'>📊 Métricas Gerais</h2>", unsafe_allow_html=True)
-
-# Calcular métricas
-total_filmes = len(df[df['type'] == 'Movie'])
-total_series = len(df[df['type'] == 'TV Show'])
-total_geral = len(df)
-
-# Exibir métricas em colunas
-col1, col2, col3 = st.columns(3)
-
-with col1:
-    st.metric(
-        label="🎬 Total de Filmes",
-        value=f"{total_filmes:,}",
-        delta=f"{(total_filmes/total_geral)*100:.1f}% do total"
-    )
-
-with col2:
-    st.metric(
-        label="📺 Total de Séries",
-        value=f"{total_series:,}",
-        delta=f"{(total_series/total_geral)*100:.1f}% do total"
-    )
-
-with col3:
-    st.metric(
-        label="📈 Total Geral",
-        value=f"{total_geral:,}",
-        delta="100%"
-    )
-
-st.markdown("---")
 
 # Seção: Distribuição de Filmes e Séries
 
