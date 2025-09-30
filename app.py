@@ -82,7 +82,7 @@ contagem_tipo['Percentual'] = (contagem_tipo['Quantidade'] / total_filtrado * 10
 
 # Exibir tabela com percentuais
 st.subheader("📋 Resumo Numérico")
-col1, col2 = st.columns(2)
+col1, col2, col3 = st.columns(3)
 
 with col1:
     st.dataframe(
@@ -93,6 +93,17 @@ with col1:
 with col2:
     st.dataframe(
         contagem_tipo[['Tipo', 'Percentual']],
+        use_container_width=True
+    )
+
+with col3:
+    # Criar dataframe com total
+    total_df = pd.DataFrame({
+        'Métrica': ['Total Geral'],
+        'Valor': [f"{total_filtrado:,} títulos"]
+    })
+    st.dataframe(
+        total_df,
         use_container_width=True
     )
 
