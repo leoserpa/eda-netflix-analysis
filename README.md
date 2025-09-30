@@ -20,6 +20,23 @@ Este projeto apresenta um dashboard interativo completo de análise exploratóri
 - **Storytelling**: Textos descritivos em cada visualização explicando insights dos dados
 - **Interface Intuitiva**: Navegação clara e organizada
 
+## 📸 Screenshots do Projeto
+
+<div align="center">
+  <img src="img/img1.png" alt="Dashboard Netflix - Visão Geral" width="80%"/>
+  <p><em>Dashboard principal com visualizações interativas</em></p>
+</div>
+
+<div align="center">
+  <img src="img/img2.png" alt="Dashboard Netflix - Análise Temporal" width="80%"/>
+  <p><em>Análise temporal e distribuição de conteúdo</em></p>
+</div>
+
+<div align="center">
+  <img src="img/img3.png" alt="Dashboard Netflix - Rankings" width="80%"/>
+  <p><em>Top rankings de países, gêneros, diretores e elenco</em></p>
+</div>
+
 ## 🚀 Como Executar
 
 ### **🌐 Acesse o Dashboard Online:**
@@ -50,6 +67,10 @@ eda-netflix-analysis/
 ├── app.py                 # Dashboard principal Streamlit
 ├── dataset/
 │   └── netflix_titles.csv # Dataset da Netflix (8.709 títulos)
+├── img/                   # Screenshots do projeto
+│   ├── img1.png          # Dashboard principal
+│   ├── img2.png          # Análise temporal
+│   └── img3.png          # Top rankings
 ├── notebook/
 │   └── netflix.ipynb     # 📓 Notebook de análise exploratória (FUNDAMENTAL)
 ├── requirements.txt       # Dependências Python
